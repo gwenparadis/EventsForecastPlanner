@@ -34,7 +34,7 @@ function getCurrentLocationWeather() {
 };
 
 //Add Event Listener on the Search Button
-searchBtn.addEventListener('click', getLocation());
+searchBtn.addEventListener('click', getCurrentLocationWeather);
 
 
 // SeatGeek API
