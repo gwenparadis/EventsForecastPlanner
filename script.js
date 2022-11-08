@@ -28,7 +28,7 @@ searchBtn.addEventListener('click', getLocation());
 
 
 // SeatGeek API
-const requestEventUrl = 'https://api.seatgeek.com/events/?client_id=MzAxMTEzMjh8MTY2NzUxOTY1My4wNDQyMzY3&&geoip=true&per_page=10';
+const requestEventUrl = 'https://api.seatgeek.com/events/?client_id=MzAxMTEzMjh8MTY2NzUxOTY1My4wNDQyMzY3&geoip=true&range=12mi&per_page=10';
 
 function getEventInfo(requestEventUrl) {
 
@@ -38,7 +38,13 @@ function getEventInfo(requestEventUrl) {
         })
         .then(function (data) {
             console.log(data);
+            for (let i = 0; i < data.events.length; i++) {
+            const lat = data.events[i].venue.location.lat;
+            const lon = data.events[i].venue.location.lon;
+            console.log(lat);
+            console.log(lon);
+        }
         });
 }
 
-// getEventInfo(requestEventUrl);
+getEventInfo(requestEventUrl);
