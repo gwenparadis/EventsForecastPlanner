@@ -25,3 +25,20 @@ function getLocation() {
 
 //Add Event Listener on the Search Button
 searchBtn.addEventListener('click', getLocation());
+
+
+// SeatGeek API
+
+function getApi(requestEventUrl) {
+
+    requestEventUrl = 'https://api.seatgeek.com/events/?client_id=MzAxMTEzMjh8MTY2NzUxOTY1My4wNDQyMzY3&&geoip=true&per_page=10';
+    fetch(requestEventUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+        });
+}
+
+// getApi(requestEventUrl);
