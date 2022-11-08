@@ -28,6 +28,8 @@ searchBtn.addEventListener('click', getLocation());
 
 
 // SeatGeek API
+
+// Current API URL calls 10 results within 12 miles of user's location
 const requestEventUrl = 'https://api.seatgeek.com/events/?client_id=MzAxMTEzMjh8MTY2NzUxOTY1My4wNDQyMzY3&geoip=true&range=12mi&per_page=10';
 
 function getEventInfo(requestEventUrl) {
