@@ -39,11 +39,14 @@ function getEventInfo(requestEventUrl) {
         .then(function (data) {
             console.log(data);
             for (let i = 0; i < data.events.length; i++) {
-            const lat = data.events[i].venue.location.lat;
-            const lon = data.events[i].venue.location.lon;
-            console.log(lat);
-            console.log(lon);
-        }
+                const lat = data.events[i].venue.location.lat;
+                const lon = data.events[i].venue.location.lon;
+                console.log(lat);
+                console.log(lon);
+            }
+        })
+        .catch(function (error) {
+            console.log("There was an error.", error)
         });
 }
 
