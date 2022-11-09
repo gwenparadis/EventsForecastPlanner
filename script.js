@@ -6,9 +6,9 @@ const searchBar = document.getElementById("userInput");
 //fetch request to get weather forecast information
 function getCurrentLocationWeather() {
     //grab API url
-    const forecastUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + (userInput.value) + 'US&appid=6f4f8d8e13827c9d81f342b6e1821c12';
+    const locationUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + (userInput.value) + 'US&appid=6f4f8d8e13827c9d81f342b6e1821c12';
 
-    fetch(forecastUrl)
+    fetch(locationUrl)
         .then(function (response) {
             return response.json();
         })
@@ -18,15 +18,22 @@ function getCurrentLocationWeather() {
 
             console.log('the latitude and longitude coordinates are: ' + lat + " ," + lon);
 
-            const currentWeatherUrl = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&APPID=6f4f8d8e13827c9d81f342b6e1821c12';
-            return fetch(currentWeatherUrl);
+            // Creates list of events using lat and lon grabbed from above
+
+            const requestEventList = 'https://api.seatgeek.com/events/?client_id=MzAxMTEzMjh8MTY2NzUxOTY1My4wNDQyMzY3&lat=' + lat + '&lon=' + lon + '&range=12mi&per_page=10'
+            return fetch(requestEventList)
         })
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data);
-            console.log(data.main);
+            for (let i = 0; i < data.events.length; i++) {
+                const eventName = data.events[i].performers[0].name;
+                const eventVenue = data.events[i].venue.name;
+                const eventTime = data.events[i].datetime_local;
+                console.log(eventName, eventVenue, eventTime);
+            }
         })
         .catch(function (error) {
             console.log(error);
@@ -37,29 +44,30 @@ function getCurrentLocationWeather() {
 searchBtn.addEventListener('click', getCurrentLocationWeather);
 
 
-// SeatGeek API
+// SeatGeek API -- If time left, will use this to display local events when user loads app
+// Still needs to grab event name and venue
 
 // Current API URL calls 10 results within 12 miles of user's location
-const requestEventUrl = 'https://api.seatgeek.com/events/?client_id=MzAxMTEzMjh8MTY2NzUxOTY1My4wNDQyMzY3&geoip=true&range=12mi&per_page=10';
+// const requestEventUrl = 'https://api.seatgeek.com/events/?client_id=MzAxMTEzMjh8MTY2NzUxOTY1My4wNDQyMzY3&geoip=true&range=12mi&per_page=10';
 
-function getEventInfo(requestEventUrl) {
+// function getEventInfo(requestEventUrl) {
 
-    fetch(requestEventUrl)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-            for (let i = 0; i < data.events.length; i++) {
-                const lat = data.events[i].venue.location.lat;
-                const lon = data.events[i].venue.location.lon;
-                console.log(lat);
-                console.log(lon);
-            }
-        })
-        .catch(function (error) {
-            console.log("There was an error.", error)
-        });
-}
+    // fetch(requestEventUrl)
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (data) {
+    //         console.log(data);
+    //         for (let i = 0; i < data.events.length; i++) {
+    //             const eventName = data.events[i].performers[0].name;
+    //             const eventVenue = data.events[i].venue.name;
+    //             const eventTime = data.events[i].datetime_local;
+    //             console.log(eventName, eventVenue, eventTime);
+    //         }
+    //     })
+    //     .catch(function (error) {
+    //         console.log("There was an error.", error)
+    //     });
+// };
 
-getEventInfo(requestEventUrl);
+// getEventInfo(requestEventUrl);
