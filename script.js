@@ -2,6 +2,7 @@
 //declare global variables
 const searchBtn = document.getElementById("search");
 const searchBar = document.getElementById("userInput");
+const eventContainer = document.getElementById("events");
 
 //fetch request to get weather forecast information
 function getEvents() {
@@ -28,12 +29,26 @@ function getEvents() {
         })
         .then(function (data) {
             console.log(data);
+            // Console logs event info
             for (let i = 0; i < data.events.length; i++) {
                 const eventName = data.events[i].performers[0].name;
                 const eventVenue = data.events[i].venue.name;
                 const eventTime = data.events[i].datetime_local;
                 console.log(eventName, eventVenue, eventTime);
-
+            }
+            // populates event info to the page
+            for (let i = 0; i < data.events.length; i++) {
+                const eventName = document.createElement('h3')
+                const eventVenue = document.createElement('p')
+                const eventTime = document.createElement('p')
+                eventName.setAttribute('id', 'event-name')
+                eventVenue.setAttribute('id', 'event-venue')
+                eventTime.setAttribute('id', 'event-time')
+                eventName.textContent = data.events[i].performers[0].name;
+                eventVenue.textContent = data.events[i].venue.name;
+                eventTime.textContent = data.events[i].datetime_local;
+                eventContainer.append(eventName);
+                eventContainer.append(eventVenue, eventTime);
             }
             getEventWeather(data);
         })
