@@ -3,6 +3,7 @@
 const searchBtn = document.getElementById("search");
 const searchBar = document.getElementById("userInput");
 const eventContainer = document.getElementById("events");
+const weatherContainer = document.getElementById("weather");
 
 //fetch request to get weather forecast information
 function getEvents() {
@@ -61,7 +62,7 @@ function getEventWeather(data) {
     //make sure the function is using the right data:
     console.log(data);
     //get the local date and time for each event
-    for (let i = 0; i < data.events.length; i++) {
+    for (let i = 0; i < 1; i++) {
         console.log(data.events[i].datetime_local);
 
         //fetch the weather for the date/time/location for each event if event is within 5 days
@@ -76,6 +77,21 @@ function getEventWeather(data) {
             })
             .then(function (data) {
                 console.log(data);
+
+                const weatherDateTimeNow = document.createElement('h3');
+                const weatherTempNow = document.createElement('p');
+                const weatherHumidityNow = document.createElement('p');
+                const weatherConditionsNow = document.createElement('p');
+                const weatherWindNow = document.createElement('p');
+                weatherDateTimeNow.textContent = data.list[0].dt_txt;
+                weatherTempNow.textContent = "Temperature: " + data.list[0].main.temp + " F";
+                weatherHumidityNow.textContent = "Humidity: " + data.list[0].main.humidity + "%";
+                weatherConditionsNow.textContent = "Conditions: " + data.list[0].weather[0].description;
+                weatherWindNow.textContent = "Wind Speed: " + data.list[0].wind.speed + " mph";
+                weatherContainer.append(weatherDateTimeNow, weatherTempNow, weatherHumidityNow, weatherConditionsNow, weatherWindNow);
+            })
+            .catch(function (error) {
+                console.log(error);
             });
     };
 };
