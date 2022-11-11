@@ -29,12 +29,14 @@ function getCurrentLocationWeather() {
         })
         .then(function (data) {
             console.log(data);
+            // Console logs event info
             for (let i = 0; i < data.events.length; i++) {
                 const eventName = data.events[i].performers[0].name;
                 const eventVenue = data.events[i].venue.name;
                 const eventTime = data.events[i].datetime_local;
                 console.log(eventName, eventVenue, eventTime);
             }
+            // populates event info to the page
             for (let i = 0; i < data.events.length; i++) {
                 const eventName = document.createElement('h3')
                 const eventVenue = document.createElement('p')
