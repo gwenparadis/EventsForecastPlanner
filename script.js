@@ -89,6 +89,54 @@ function getEventWeather(data) {
                 weatherConditionsNow.textContent = "Conditions: " + data.list[0].weather[0].description;
                 weatherWindNow.textContent = "Wind Speed: " + data.list[0].wind.speed + " mph";
                 weatherContainer.append(weatherDateTimeNow, weatherTempNow, weatherHumidityNow, weatherConditionsNow, weatherWindNow);
+
+                const weatherDateTimeSecond = document.createElement('h3');
+                const weatherTempSecond = document.createElement('p');
+                const weatherHumiditySecond = document.createElement('p');
+                const weatherConditionsSecond = document.createElement('p');
+                const weatherWindSecond = document.createElement('p');
+                weatherDateTimeSecond.textContent = data.list[8].dt_txt;
+                weatherTempSecond.textContent = "Temperature: " + data.list[8].main.temp + " F";
+                weatherHumiditySecond.textContent = "Humidity: " + data.list[8].main.humidity + "%";
+                weatherConditionsSecond.textContent = "Conditions: " + data.list[8].weather[0].description;
+                weatherWindSecond.textContent = "Wind Speed: " + data.list[8].wind.speed + " mph";
+                weatherContainer.append(weatherDateTimeSecond, weatherTempSecond, weatherHumiditySecond, weatherConditionsSecond, weatherWindSecond);
+
+                const weatherDateTimeThird = document.createElement('h3');
+                const weatherTempThird = document.createElement('p');
+                const weatherHumidityThird = document.createElement('p');
+                const weatherConditionsThird = document.createElement('p');
+                const weatherWindThird = document.createElement('p');
+                weatherDateTimeThird.textContent = data.list[16].dt_txt;
+                weatherTempThird.textContent = "Temperature: " + data.list[16].main.temp + " F";
+                weatherHumidityThird.textContent = "Humidity: " + data.list[16].main.humidity + "%";
+                weatherConditionsThird.textContent = "Conditions: " + data.list[16].weather[0].description;
+                weatherWindThird.textContent = "Wind Speed: " + data.list[16].wind.speed + " mph";
+                weatherContainer.append(weatherDateTimeThird, weatherTempThird, weatherHumidityThird, weatherConditionsThird, weatherWindThird);
+
+                const weatherDateTimeFour = document.createElement('h3');
+                const weatherTempFour = document.createElement('p');
+                const weatherHumidityFour = document.createElement('p');
+                const weatherConditionsFour = document.createElement('p');
+                const weatherWindFour = document.createElement('p');
+                weatherDateTimeFour.textContent = data.list[24].dt_txt;
+                weatherTempFour.textContent = "Temperature: " + data.list[24].main.temp + " F";
+                weatherHumidityFour.textContent = "Humidity: " + data.list[24].main.humidity + "%";
+                weatherConditionsFour.textContent = "Conditions: " + data.list[24].weather[0].description;
+                weatherWindFour.textContent = "Wind Speed: " + data.list[24].wind.speed + " mph";
+                weatherContainer.append(weatherDateTimeFour, weatherTempFour, weatherHumidityFour, weatherConditionsFour, weatherWindFour);
+
+                const weatherDateTimeFive = document.createElement('h3');
+                const weatherTempFive = document.createElement('p');
+                const weatherHumidityFive = document.createElement('p');
+                const weatherConditionsFive = document.createElement('p');
+                const weatherWindFive = document.createElement('p');
+                weatherDateTimeFive.textContent = data.list[32].dt_txt;
+                weatherTempFive.textContent = "Temperature: " + data.list[32].main.temp + " F";
+                weatherHumidityFive.textContent = "Humidity: " + data.list[32].main.humidity + "%";
+                weatherConditionsFive.textContent = "Conditions: " + data.list[32].weather[0].description;
+                weatherWindFive.textContent = "Wind Speed: " + data.list[32].wind.speed + " mph";
+                weatherContainer.append(weatherDateTimeFive, weatherTempFive, weatherHumidityFive, weatherConditionsFive, weatherWindFive);
             })
             .catch(function (error) {
                 console.log(error);
