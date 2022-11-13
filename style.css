@@ -35,12 +35,22 @@ input {
     
 }
 
-/* #events {
+#events {
     width: 40%;
     float: left;
+    border-radius: 25px;
+  border: 2px solid white;
+  padding: 20px;
 }
 
 #weather {
     width: 40%;
     float: right;
-} */
+    border-radius: 25px;
+  border: 2px solid white;
+  padding: 20px;
+}
+
+.decor {
+    text-decoration-line: underline;
+}
