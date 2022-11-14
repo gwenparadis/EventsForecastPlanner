@@ -10,20 +10,19 @@ The application can be accessed at the following link: https://gwenparadis.githu
 ## Usage
 
 After the User accesses the application using the Installation guidelines, the user will be presented with the image in the screenshot below. The user can enter any city name (in the United States) into the search bar, using the following format: City Name, State Code, Country Code. When the User has typed their desired location in the search bar, the user can click Fetch Events. This will reveal the next 10 events within a 12 mile radius of their search location, as well as a 5-day forecast for that location.
-
 ![EventsForecastPlanner Screenshot](/assets/images/eventsforecastplanner.png);
 
 ## Credits
 
 Collaborators:
-Username: NoahCote10; Profile Link: https://github.com/NoahCote10;  
-Username: StephTidwell; Profile Link: https://github.com/StephTidwell;  
-Username: gwenparadis; Profile Link: https://github.com/gwenparadis;  
+Username: NoahCote10; Profile Link: https://github.com/NoahCote10;   
+Username: StephTidwell; Profile Link: https://github.com/StephTidwell;   
+Username: gwenparadis; Profile Link: https://github.com/gwenparadis;   
 
 API's utilized in production:
-Geolocation API from OpenWeatherMap
-The SeatGeek Platform API from SeatGeek
-Five Day Three Hour Forecast API from OpenWeatherMap
+Geolocation API from OpenWeatherMap;   
+The SeatGeek Platform API from SeatGeek;   
+Five Day Three Hour Forecast API from OpenWeatherMap;   
 
 ## License
 
