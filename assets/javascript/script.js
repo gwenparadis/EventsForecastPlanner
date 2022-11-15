@@ -7,6 +7,14 @@ const weatherContainer = document.getElementById("weather");
 
 //fetch request to get weather forecast information
 function getEvents() {
+    //set user search to local storage
+    localStorage.setItem('userInput', userInput.value);
+    console.log("the local storage is: " + localStorage.getItem('userInput'));
+    const searchContainer = document.getElementById("searchContainer");
+    const localStorageButton = document.createElement("button");
+    localStorageButton.textContent = localStorage.getItem('userInput');
+    searchContainer.appendChild(localStorageButton);
+
     //url to fetch the location from the user input entered into the search bar by the user, from the openweathermap API
     const locationUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + (userInput.value) + 'US&appid=6f4f8d8e13827c9d81f342b6e1821c12';
 
