@@ -54,3 +54,7 @@ input {
 .decor {
     text-decoration-line: underline;
 }
+
+button {
+    padding: 20px;
+}
